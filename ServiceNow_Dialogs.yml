@@ -1,0 +1,824 @@
+---
+- description: Create Servicenow Incident to be the Dialog
+  buttons: submit,cancel
+  label: Create Context Specific Snow Incident
+  system: false
+  dialog_tabs:
+  - description: 
+    display: 
+    label: Create Servicenow Incident
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: 
+      display: 
+      label: New section
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: create_generic_snow_incident_ci_type
+        description: ''
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values_method: 
+        values_method_options: {}
+        options:
+          sort_by: description
+          sort_order: ascending
+          force_multi_value: false
+          show_past_days: false
+          protected: false
+        label: Configuration Item Type
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: false
+        dynamic: true
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldDropDownList
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: ServiceNow/Integration/ServiceNow
+          ae_class: CMDB
+          ae_instance: get_context_obj_type
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+        values: 
+      - name: create_generic_snow_incident_ci_name
+        description: ''
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values_method: 
+        values_method_options: {}
+        options:
+          protected: false
+          show_past_days: false
+          force_multi_value: false
+        label: Name
+        position: 1
+        validator_type: f
+        validator_rule: 
+        reconfigurable: false
+        dynamic: true
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldTextBox
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: ServiceNow/Integration/ServiceNow
+          ae_class: CMDB
+          ae_instance: get_context_obj_name
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+      - name: create_generic_snow_incident_urgency
+        description: ''
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: '3'
+        values:
+        - - 
+          - "<None>"
+        - - '1'
+          - 1 – High
+        - - '2'
+          - 2 –Medium
+        - - '3'
+          - 3 –Low
+        values_method: 
+        values_method_options: {}
+        options:
+          sort_by: description
+          sort_order: ascending
+          force_multi_value: false
+          show_past_days: false
+          protected: false
+        label: Name
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: false
+        dynamic: false
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldDropDownList
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: 
+          ae_class: 
+          ae_instance: 
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+      - name: create_generic_snow_incident_assignment_group
+        description: ''
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values_method: 
+        values_method_options: {}
+        options:
+          sort_by: description
+          sort_order: ascending
+          force_multi_value: false
+          show_past_days: false
+          protected: false
+        label: Assignment Group
+        position: 3
+        validator_type: 
+        validator_rule: 
+        reconfigurable: false
+        dynamic: true
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldDropDownList
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: ServiceNow/Integration/ServiceNow
+          ae_class: CMDB
+          ae_instance: get_snow_assignment_groups
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+        values: 
+      - name: create_generic_snow_incident_short_description
+        description: ''
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          protected: false
+          show_past_days: false
+          force_multi_value: false
+        label: Short Description
+        position: 4
+        validator_type: f
+        validator_rule: 
+        reconfigurable: false
+        dynamic: false
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldTextBox
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: 
+          ae_class: 
+          ae_instance: 
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+      - name: create_generic_snow_incident_comments
+        description: ''
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          protected: false
+          show_past_days: false
+          force_multi_value: false
+        label: Detailed Comments
+        position: 5
+        validator_type: f
+        validator_rule: 
+        reconfigurable: false
+        dynamic: false
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldTextAreaBox
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: 
+          ae_class: 
+          ae_instance: 
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+  export_version: '5.11'
+- description: Create ServicenowIncident
+  buttons: submit,cancel
+  label: Create Generic Snow Incident
+  system: false
+  dialog_tabs:
+  - description: 
+    display: 
+    label: Create Servicenow Incident
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: 
+      display: 
+      label: New section
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: create_generic_snow_incident_ci_type
+        description: ''
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values:
+        - - 
+          - "<None>"
+        - - Availability Zone
+          - Availability Zone
+        - - Cloud Network
+          - Cloud Network
+        - - Cloud Object Store Container
+          - Cloud Object Store Container
+        - - Cloud Subent
+          - Cloud Subnet
+        - - Cloud Tenant
+          - Cloud Tenant
+        - - Cloud Volume
+          - Cloud Volume
+        - - Cluster / Deployment Role
+          - Cluster / Deployment Role
+        - - Container Image
+          - Container Image
+        - - Container Node
+          - Container Node
+        - - Container Pod
+          - Container Pod
+        - - Container Project
+          - Container Project
+        - - Container Template
+          - Container Template
+        - - Container Volume
+          - Container Volume
+        - - Datastore
+          - Datastore
+        - - EVM Group
+          - EVM Group
+        - - EVM User
+          - EVM User
+        - - General
+          - General
+        - - Host
+          - Host
+        - - Load Balancer
+          - Load Balancer
+        - - Network Router
+          - Network Router
+        - - Orchestration Stack
+          - Orchestration Stack
+        - - Provider
+          - Provider
+        - - Security Group
+          - Security Group
+        - - Service
+          - Service
+        - - Switch
+          - Switch
+        - - Tenant
+          - Tenant
+        - - VM
+          - VM
+        - - VM Template and Image
+          - VM Template and Image
+        values_method: 
+        values_method_options: {}
+        options:
+          sort_by: description
+          sort_order: ascending
+          force_multi_value: false
+          show_past_days: false
+          protected: false
+        label: Configuration Item Type
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: false
+        dynamic: false
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldDropDownList
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: 
+          ae_class: 
+          ae_instance: 
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+      - name: create_generic_snow_incident_urgency
+        description: ''
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: '3'
+        values:
+        - - 
+          - "<None>"
+        - - '1'
+          - 1 – High
+        - - '2'
+          - 2 – Medium
+        - - '3'
+          - 3 - Low
+        values_method: 
+        values_method_options: {}
+        options:
+          sort_by: description
+          sort_order: ascending
+          force_multi_value: false
+          show_past_days: false
+          protected: false
+        label: Name
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: false
+        dynamic: false
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldDropDownList
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: 
+          ae_class: 
+          ae_instance: 
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+      - name: create_generic_snow_incident_assignment_group
+        description: ''
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values_method: 
+        values_method_options: {}
+        options:
+          sort_by: description
+          sort_order: ascending
+          force_multi_value: false
+          show_past_days: false
+          protected: false
+        label: Assignment Group
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: false
+        dynamic: true
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldDropDownList
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: ServiceNow/Integration/ServiceNow
+          ae_class: CMDB
+          ae_instance: get_snow_assignment_groups
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+        values: 
+      - name: create_generic_snow_incident_ci_name
+        description: ''
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          protected: false
+          show_past_days: false
+          force_multi_value: false
+        label: Name
+        position: 3
+        validator_type: f
+        validator_rule: 
+        reconfigurable: false
+        dynamic: false
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: false
+        validator_message: 
+        type: DialogFieldTextBox
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: 
+          ae_class: 
+          ae_instance: 
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+      - name: create_generic_snow_incident_short_description
+        description: ''
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          protected: false
+          show_past_days: false
+          force_multi_value: false
+        label: Short Description
+        position: 4
+        validator_type: f
+        validator_rule: 
+        reconfigurable: false
+        dynamic: false
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldTextBox
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: 
+          ae_class: 
+          ae_instance: 
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+      - name: create_generic_snow_incident_comments
+        description: ''
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          protected: false
+          show_past_days: false
+          force_multi_value: false
+        label: Detailed Comments
+        position: 5
+        validator_type: f
+        validator_rule: 
+        reconfigurable: false
+        dynamic: false
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldTextAreaBox
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: 
+          ae_class: 
+          ae_instance: 
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+  export_version: '5.11'
+- description: Refresh Servicenow Incident. To Get the latest information from servicenow
+  buttons: submit,cancel
+  label: View and Update Servicenow Incident
+  system: false
+  dialog_tabs:
+  - description: 
+    display: 
+    label: View & Update
+    display_method: 
+    display_method_options: 
+    position: 0
+    dialog_groups:
+    - description: 
+      display: 
+      label: New section
+      display_method: 
+      display_method_options: 
+      position: 0
+      dialog_fields:
+      - name: refresh_snow_incident_list_incidents
+        description: ''
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values_method: 
+        values_method_options: {}
+        options:
+          sort_by: description
+          sort_order: ascending
+          force_multi_value: false
+          show_past_days: false
+          protected: false
+        label: Select Incident
+        position: 0
+        validator_type: 
+        validator_rule: 
+        reconfigurable: false
+        dynamic: true
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldDropDownList
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: ServiceNow/Integration/ServiceNow
+          ae_class: CMDB
+          ae_instance: get_cf_incident_list
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders:
+        - current_details
+        - view_update_snow_incident_urgency
+        values: 
+      - name: current_details
+        description: ''
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: 
+        values_method: 
+        values_method_options: {}
+        options:
+          protected: false
+          show_past_days: false
+          force_multi_value: false
+        label: Details
+        position: 1
+        validator_type: f
+        validator_rule: 
+        reconfigurable: false
+        dynamic: true
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldTextAreaBox
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: ServiceNow/Integration/ServiceNow
+          ae_class: CMDB
+          ae_instance: get_latest_incident_details
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders:
+        - view_update_snow_incident_urgency
+      - name: view_update_snow_incident_urgency
+        description: ''
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values_method: 
+        values_method_options: {}
+        options:
+          sort_by: description
+          sort_order: ascending
+          force_multi_value: false
+          show_past_days: false
+          protected: false
+        label: Urgency
+        position: 2
+        validator_type: 
+        validator_rule: 
+        reconfigurable: false
+        dynamic: true
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldDropDownList
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: ServiceNow/Integration/ServiceNow
+          ae_class: CMDB
+          ae_instance: get_incident_urgency
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+        values: 
+      - name: view_update_snow_incident_comments
+        description: ''
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          protected: false
+          show_past_days: false
+          force_multi_value: false
+        label: Comments
+        position: 3
+        validator_type: f
+        validator_rule: 
+        reconfigurable: false
+        dynamic: false
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldTextAreaBox
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: 
+          ae_class: 
+          ae_instance: 
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+  export_version: '5.11'
