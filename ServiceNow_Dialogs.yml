@@ -300,6 +300,100 @@
       display_method_options: 
       position: 0
       dialog_fields:
+      - name: create_generic_snow_incident_ci_name
+        description: ''
+        data_type: 
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: ''
+        values: 
+        values_method: 
+        values_method_options: {}
+        options:
+          protected: false
+          show_past_days: false
+          force_multi_value: false
+        label: Name
+        position: 0
+        validator_type: f
+        validator_rule: 
+        reconfigurable: false
+        dynamic: false
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldTextBox
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: 
+          ae_class: 
+          ae_instance: 
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
+      - name: create_generic_snow_incident_urgency
+        description: ''
+        data_type: string
+        notes: 
+        notes_display: 
+        display: edit
+        display_method: 
+        display_method_options: {}
+        required: false
+        required_method: 
+        required_method_options: {}
+        default_value: '3'
+        values:
+        - - 
+          - "<None>"
+        - - '1'
+          - 1 – High
+        - - '2'
+          - 2 – Medium
+        - - '3'
+          - 3 - Low
+        values_method: 
+        values_method_options: {}
+        options:
+          sort_by: description
+          sort_order: ascending
+          force_multi_value: false
+          show_past_days: false
+          protected: false
+        label: Urgency
+        position: 1
+        validator_type: 
+        validator_rule: 
+        reconfigurable: false
+        dynamic: false
+        show_refresh_button: false
+        load_values_on_init: true
+        read_only: false
+        auto_refresh: false
+        trigger_auto_refresh: false
+        visible: true
+        validator_message: 
+        type: DialogFieldDropDownList
+        resource_action:
+          action: 
+          resource_type: DialogField
+          ae_namespace: 
+          ae_class: 
+          ae_instance: 
+          ae_message: 
+          ae_attributes: {}
+        dialog_field_responders: []
       - name: create_generic_snow_incident_ci_type
         description: ''
         data_type: string
@@ -380,59 +474,7 @@
           show_past_days: false
           protected: false
         label: Configuration Item Type
-        position: 0
-        validator_type: 
-        validator_rule: 
-        reconfigurable: false
-        dynamic: false
-        show_refresh_button: false
-        load_values_on_init: true
-        read_only: false
-        auto_refresh: false
-        trigger_auto_refresh: false
-        visible: true
-        validator_message: 
-        type: DialogFieldDropDownList
-        resource_action:
-          action: 
-          resource_type: DialogField
-          ae_namespace: 
-          ae_class: 
-          ae_instance: 
-          ae_message: 
-          ae_attributes: {}
-        dialog_field_responders: []
-      - name: create_generic_snow_incident_urgency
-        description: ''
-        data_type: string
-        notes: 
-        notes_display: 
-        display: edit
-        display_method: 
-        display_method_options: {}
-        required: false
-        required_method: 
-        required_method_options: {}
-        default_value: '3'
-        values:
-        - - 
-          - "<None>"
-        - - '1'
-          - 1 – High
-        - - '2'
-          - 2 – Medium
-        - - '3'
-          - 3 - Low
-        values_method: 
-        values_method_options: {}
-        options:
-          sort_by: description
-          sort_order: ascending
-          force_multi_value: false
-          show_past_days: false
-          protected: false
-        label: Name
-        position: 1
+        position: 2
         validator_type: 
         validator_rule: 
         reconfigurable: false
@@ -475,7 +517,7 @@
           show_past_days: false
           protected: false
         label: Assignment Group
-        position: 2
+        position: 3
         validator_type: 
         validator_rule: 
         reconfigurable: false
@@ -498,48 +540,6 @@
           ae_attributes: {}
         dialog_field_responders: []
         values: 
-      - name: create_generic_snow_incident_ci_name
-        description: ''
-        data_type: 
-        notes: 
-        notes_display: 
-        display: edit
-        display_method: 
-        display_method_options: {}
-        required: false
-        required_method: 
-        required_method_options: {}
-        default_value: ''
-        values: 
-        values_method: 
-        values_method_options: {}
-        options:
-          protected: false
-          show_past_days: false
-          force_multi_value: false
-        label: Name
-        position: 3
-        validator_type: f
-        validator_rule: 
-        reconfigurable: false
-        dynamic: false
-        show_refresh_button: false
-        load_values_on_init: true
-        read_only: false
-        auto_refresh: false
-        trigger_auto_refresh: false
-        visible: false
-        validator_message: 
-        type: DialogFieldTextBox
-        resource_action:
-          action: 
-          resource_type: DialogField
-          ae_namespace: 
-          ae_class: 
-          ae_instance: 
-          ae_message: 
-          ae_attributes: {}
-        dialog_field_responders: []
       - name: create_generic_snow_incident_short_description
         description: ''
         data_type: 
@@ -625,7 +625,7 @@
           ae_attributes: {}
         dialog_field_responders: []
   export_version: '5.11'
-- description: Refresh Servicenow Incident. To Get the latest information from servicenow
+- description: View all Incidents and update their Urgencies.
   buttons: submit,cancel
   label: View and Update Servicenow Incident
   system: false
